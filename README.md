@@ -1,5 +1,16 @@
 # Analiza podatkov s programom R, 2017/18
 
+## Makroekonomska analiza nemškega gospodarstva
+
+Avtor: Max Filip Uršič
+
+V mojem projektu se bom ukvarjal z makroekonomsko analizo nemškega gospodarstva od leta 2005 naprej in primerjavo le tega z evropskim. Pri analizi se bom osredotočil predvsem na glavne dele BDP-ja (domača potrošnja, potrošnja države, investicije, uvoz, ter izvoz), ter na ostale makroekonomske kazatelje kot so delež brezposelnosti, inflacija in obrestne mere.
+Podatke bom črpal iz evrostata, uradnih strani evropske centralne banke in: 
+- http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-406763_QID_-1A84E7B4_UID_-3F171EB0&layout=TIME,C,X,0;NA_ITEM,L,Y,0;GEO,L,Y,1;UNIT,L,Z,0;INDICATORS,C,Z,1;&zSelection=DS-406763INDICATORS,OBS_FLAG;DS-406763UNIT,CLV10_MEUR;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_0_0&rankName4=NA-ITEM_1_2_0_1&rankName5=GEO_1_2_1_1&sortC=ASC_-1_FIRST&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23
+- https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html
+- http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=tec00118&plugin=1
+
+
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Tematika
