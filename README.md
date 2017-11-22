@@ -6,7 +6,7 @@ Avtor: Max Filip Uršič
 
 ## Tematika
 
-V mojem projektu se bom ukvarjal z makroekonomsko analizo evropskega gospodarstva od leta 1991 naprej. Pri analizi se bom osredotočil predvsem na glavne sestavine BDP-ja (domača potrošnja, potrošnja države, investicije, uvoz, ter izvoz) ter na ostale makroekonomske kazatelje kot so delež brezposelnosti, inflacija in obrestne mere. Podakte bom nato primerjal glede na različne države in predele Evrope. Iskal bom podobnosti in razlike med njimi ter vplive obrestne mere, inflacije, gospodarske krize leta 2008 in drugih zunanjih šokov, ki so vplivali na gospodarsko rast evropskih držav.
+V svojem projektu se bom ukvarjal z makroekonomsko analizo evropskega gospodarstva od leta 1991 naprej. Pri analizi se bom osredotočil predvsem na glavne sestavine BDP-ja (domača potrošnja, potrošnja države, investicije, uvoz in izvoz) ter na ostale makroekonomske kazatelje, kot so delež brezposelnosti, inflacija in obrestne mere. Podatke bom nato primerjal glede na različne države in predele Evrope. Iskal bom podobnosti in razlike med njimi ter vplive obrestne mere, inflacije, gospodarske krize leta 2008 in drugih zunanjih šokov, ki so vplivali na gospodarsko rast evropskih držav.
 
 Podatke bom črpal iz evrostata, uradnih strani evropske centralne banke...: 
 
@@ -15,8 +15,8 @@ Podatke bom črpal iz evrostata, uradnih strani evropske centralne banke...:
 - http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=tec00118&plugin=1
 
 Projekt bo vseboval 3 tabele:
--1. tabela bo vsebovala stolpec z letnicami, nato pa bodo sledili stolpci z ekonomskimi podatki posameznih držav, ki bodo vsebovali realno rast BDP-ja, domačo potrošnjo, potrošnjo države, investicije, uvoz in izvoz.
--2. in 3. tabela bosta prav tako vsebovali stolpec z letnicami, nato pa bosta sledila stolpca z obrestnimi merami in inflacijo.
+- prva tabela bo vsebovala stolpec z letnicami, nato pa bodo sledili stolpci z ekonomskimi podatki posameznih držav, ki bodo vsebovali realno rast BDP-ja, domačo potrošnjo, potrošnjo države, investicije, uvoz in izvoz.
+- druga in tretja tabela bosta prav tako vsebovali stolpec z letnicami, nato pa bosta sledila stolpca z obrestnimi merami in inflacijo.
 
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
