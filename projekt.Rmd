@@ -21,7 +21,7 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Makroekonomska analiza evropskega gospodarstva.
 
-Za moj projekt sem si izbral makroekonomsko analizo evropskega gospodarstva. Ta tematika me je privabila zaradi tesne povezave s predmetom makroekonomija in zaradi mojega splošnega zanimanja za gibanje evropskega in svetovnega gospodarstva, s katerim bom imel v prihodnosti po vsej verjetnosti veliko opravka.
+Za svoj projekt sem si izbral makroekonomsko analizo evropskega gospodarstva. Ta tematika me je privabila zaradi tesne povezave s predmetom makroekonomija in zaradi mojega splošnega zanimanja za gibanje evropskega in svetovnega gospodarstva, s katerim bom imel v prihodnosti po vsej verjetnosti veliko opravka.
 
 ***
 
