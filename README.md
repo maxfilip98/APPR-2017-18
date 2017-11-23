@@ -8,7 +8,7 @@ Avtor: Max Filip Uršič
 
 V svojem projektu se bom ukvarjal z makroekonomsko analizo evropskega gospodarstva od leta 1991 naprej. Pri analizi se bom osredotočil predvsem na glavne sestavine BDP-ja (domača potrošnja, potrošnja države, investicije, uvoz in izvoz) ter na ostale makroekonomske kazatelje, kot so delež brezposelnosti, inflacija in obrestne mere. Podatke bom nato primerjal glede na različne države in predele Evrope. Iskal bom podobnosti in razlike med njimi ter vplive obrestne mere, inflacije, gospodarske krize leta 2008 in drugih zunanjih šokov, ki so vplivali na gospodarsko rast evropskih držav.
 
-Podatke bom črpal iz evrostata, uradnih strani evropske centralne banke...: 
+Podatke bom črpal iz evrostata, uradnih strani evropske centralne banke: 
 
 - http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-406763_QID_-7AA5FD9F_UID_-3F171EB0&layout=TIME,C,X,0;NA_ITEM,L,Y,0;GEO,L,Y,1;UNIT,L,Z,0;INDICATORS,C,Z,1;&zSelection=DS-406763UNIT,CLV10_MEUR;DS-406763INDICATORS,OBS_FLAG;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_0_0&rankName4=NA-ITEM_1_0_0_1&rankName5=GEO_1_0_1_1&sortR=ASC_-1_FIRST&sortC=ASC_-1_FIRST&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23
 - https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html
