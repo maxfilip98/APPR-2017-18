@@ -6,7 +6,7 @@ Avtor: Max Filip Uršič
 
 ## Tematika
 
-V svojem projektu se bom ukvarjal z makroekonomsko analizo evropskega gospodarstva od leta 1991 naprej. Pri analizi se bom osredotočil predvsem na glavne sestavine BDP-ja (domača potrošnja, potrošnja države, investicije, uvoz in izvoz) ter na ostale makroekonomske kazatelje, kot so inflacija in obrestne mere. Podatke bom nato primerjal glede na različne države in predele Evrope. Iskal bom podobnosti in razlike med njimi ter vplive obrestne mere, inflacije, gospodarske krize leta 2008 in drugih zunanjih šokov, ki so vplivali na gospodarsko rast evropskih držav.
+V svojem projektu se bom ukvarjal z makroekonomsko analizo evropskega gospodarstva od leta 1999 naprej. Pri analizi se bom osredotočil predvsem na glavne sestavine BDP-ja (domača potrošnja, potrošnja države, investicije, uvoz in izvoz) ter na ostale makroekonomske kazatelje, kot so inflacija in obrestne mere. Podatke bom nato primerjal glede na različne države in predele Evrope. Iskal bom podobnosti in razlike med njimi ter vplive obrestne mere, inflacije, gospodarske krize leta 2008 in drugih zunanjih šokov, ki so vplivali na gospodarsko rast evropskih držav.
 
 Podatke bom črpal iz evrostata, uradnih strani evropske centralne banke: 
 
