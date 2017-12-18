@@ -18,12 +18,12 @@ stran2 <- html_session(link2) %>% read_html()
 obrestne_mere <- stran2 %>% html_nodes(xpath="//table[@class='ecb-contentTable fullWidth']") %>% 
   .[[1]] %>%
   html_table(fill = TRUE)
-colnames(obrestne_mere) <- c("leta", "datum", "deposit-facility", "fixed-rate-tenders-fixed-rate", "variable-rate-tenders-minimum-bid-rate", "marginal-lending-facility")
+colnames(obrestne_mere) <- c("leta", "datum", "deposit_facility", "fixed_rate_tenders_fixed-rate", "variable_rate_tenders_minimum_bid_rate", "marginal_lending-facility")
 obrestne_mere <- tail(obrestne_mere, -2)
-obrestne_mere$leta <- parse_integer(obrestne_mere$leta)
-obrestne_mere$deposit-facility <- parse_integer(obrestne_mere$deposit-facility)
-obrestne_mere$fixed-rate-tenders-fixed-rate <- parse_integer(obrestne_mere$fixed-rate-tenders-fixed-rate)
-obrestne_mere$marginal-lending-facility <-parse_integer(obrestne_mere$marginal-lending-facility)
+obrestne_mere$leta <- parse_number(obrestne_mere$leta)
+obrestne_mere$deposit_facility <- parse_number(obrestne_mere$deposit_facility)
+obrestne_mere$fixed_rate_tenders_fixed_rate <- parse_number(obrestne_mere$fixed_rate_tenders_fixed_rate)
+obrestne_mere$marginal_lending-facility <-parse_number(obrestne_mere$marginal_lending-facility)
 #obrestne_mere$51 <- NULL
 
 BDP <- read_csv("podatki/BDP.csv",
