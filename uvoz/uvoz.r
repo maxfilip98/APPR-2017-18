@@ -24,7 +24,7 @@ obrestne_mere$leta <- parse_number(obrestne_mere$leta)
 obrestne_mere$deposit_facility <- parse_number(obrestne_mere$deposit_facility)
 obrestne_mere$fixed_rate_tenders_fixed_rate <- parse_number(obrestne_mere$fixed_rate_tenders_fixed_rate)
 obrestne_mere$marginal_lending-facility <-parse_number(obrestne_mere$marginal_lending-facility)
-#obrestne_mere$51 <- NULL
+obrestne_mere <- filter(obrestne_mere, leta > 10)
 
 BDP <- read_csv("podatki/BDP.csv",
                 col_names = c("leta", "sestava", "drzava" , "unit", "vrednost"),
