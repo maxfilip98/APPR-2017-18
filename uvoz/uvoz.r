@@ -16,14 +16,15 @@ inflacija <- inflacija %>%
   
 
 link2 <- "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html"
-stran <- html_session(link2) %>% read_html()
-obrestne_mere <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% .[[1]] %>% html_table(dec = ".")
-return(obrestne_mere)
-  for (i in 1:ncol(obrestne_mere)) {
-    if (is.character(obrestne_mere[[i]])) {
-      Encoding(obrestne_mere[[i]]) <- "UTF-8"
-  }
-}
+stran2 <- html_session(link2) %>% read_html()
+obrestne_mere <- stran2 %>% html_nodes(xpath="//table[@class='ecb-contentTable fullWidth']") %>% 
+  .[[1]] %>%
+  html_table(fill = TRUE)
+
+#link <- "http://sl.wikipedia.org/wiki/Seznam_ob%C4%8Din_v_Sloveniji"
+#stran <- html_session(link) %>% read_html()
+#tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
+#  .[[1]] %>% html_table(dec = ",")
   
 
 
