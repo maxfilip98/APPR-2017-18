@@ -1,12 +1,16 @@
 link1 <- "http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&plugin=1&language=en&pcode=tec00118"
 stran <- html_session(link1) %>% read_html()
-inflacija <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% .[[1]] %>% html_table(dec = ",")
-for (i in 1:ncol(inflacija)) {
-  if (is.character(inflacija[[i]])) {
-    Encoding(top4[[i]]) <- "UTF-8"
-  }
-}
-colnames(inflacija) <- c("cas", "drzava")
+drzave <- stran %>% html_nodes(xpath="//table[@id='fixtable']") %>% .[[1]] %>%
+  html_table(header = FALSE)
+leta <- stran %>% html_nodes(xpath="//table[@id='headtable']") %>% .[[1]] %>%
+  html_table(header = FALSE)
+inflacija <- stran %>% html_nodes(xpath="//table[@id='contenttable']") %>% .[[1]] %>% html_table()
+inflacija <- cbind(drzave, inflacija)
+colnames(inflacija) <- c("drzava", leta)
+inflacija <- inflacija %>%
+  melt(id.vars = "drzava", variable.name = "leto", value.name = "sprememba") %>%
+  mutate(leto = parse_number(leto),
+         sprememba = parse_number(sprememba, na = ":"))
 
   
   
