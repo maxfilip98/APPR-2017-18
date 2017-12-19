@@ -44,21 +44,21 @@ source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 Podatke sem uvozil iz strani evrostat, ter iz uradne strani ECB v obliki CSV in HTML. Podatki so v treh tabelah in so v obliki *tidy data*.
 
-1. 'Obrestne mere' - Podatki o različnih vrstah obrestnih mer skozi leta. Uvozil iz HTML-ja.
-  - 'datum' - meritev: datum spremembe obrestne mere (datum),
-  - 'vrsta' - spremenljivka: vrsta obrestne mere (neurejen faktor),
-  - 'vrednost' - meritev: vrednost obrestne mere v % (število).
+1. `Obrestne mere` - Podatki o različnih vrstah obrestnih mer skozi leta. Uvozil iz HTML-ja.
+  - `datum` - meritev: datum spremembe obrestne mere (datum),
+  - `vrsta` - spremenljivka: vrsta obrestne mere (neurejen faktor),
+  - `vrednost` - meritev: vrednost obrestne mere v % (število).
   
-2. 'Inflacija' - Podatki o stopnji inflacije v evropskih državah in ZDA. Uvozil iz HTML-ja.
-  - 'drzava' - spremenljivka: ime države (neurejen faktor),
-  - 'leto' - meritev: leto inflacije (število),
-  - 'stopnja' - meritev: stopnja inflacije (število).
+2. `Inflacija` - Podatki o stopnji inflacije v evropskih državah in ZDA. Uvozil iz HTML-ja.
+  - `drzava` - spremenljivka: ime države (neurejen faktor),
+  - `leto` - meritev: leto inflacije (število),
+  - `stopnja` - meritev: stopnja inflacije (število).
   
-3. 'BDP' - Podatki o BDP-ju in sestavnih delih le tega. Uvozil iz CSV-ja.
-  - 'leto' - meritev: leto (število),
-  - 'sestava' - spremenljivka: sestavni deli BDP-ja (neurejen faktor),
-  - 'drzava' - spremenljivka: ime države (neurejen faktor),
-  - 'vrednost' - meritev: vrednost sestavnih delov BDP-ja v eur (število).
+3. `BDP` - Podatki o BDP-ju in sestavnih delih le tega. Uvozil iz CSV-ja.
+  - `leto` - meritev: leto (število),
+  - `sestava` - spremenljivka: sestavni deli BDP-ja (neurejen faktor),
+  - `drzava` - spremenljivka: ime države (neurejen faktor),
+  - `vrednost` - meritev: vrednost sestavnih delov BDP-ja v eur (število).
 
 
 **Opomba**: Pri tabeli BDP sem prvo odstranil nekaj vrstic, saj so bili v njih tudi podatki od leta 1991 naprej, ki pa jih ne potrebujem, saj imam v drugih dveh tabelah podatke od leta 1999 oz. 2005 naprej in bi analizo težje naredil, zaradi mankajočih podatkov.
