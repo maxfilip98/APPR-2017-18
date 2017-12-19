@@ -8,9 +8,9 @@ inflacija <- stran %>% html_nodes(xpath="//table[@id='contenttable']") %>% .[[1]
 inflacija <- cbind(drzave, inflacija)
 colnames(inflacija) <- c("drzava", leta)
 inflacija <- inflacija %>%
-  melt(id.vars = "drzava", variable.name = "leto", value.name = "sprememba") %>%
+  melt(id.vars = "drzava", variable.name = "leto", value.name = "stopnja") %>%
   mutate(leto = parse_number(leto),
-         sprememba = parse_number(sprememba, na = ":"))
+         stopnja = parse_number(stopnja, na = ":"))
 
 
 link2 <- "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html"
@@ -23,7 +23,7 @@ obrestne_mere <- obrestne_mere %>% tail(-2) %>% head(-1) %>%
   mutate(leta = parse_number(leta),
          datum = datum %>% strapplyc("^([^.]+)") %>% unlist()) %>% fill(leta) %>%
   mutate(datum = paste(datum, leta) %>% parse_date("%d %b %Y", locale = locale("en"))) %>%
-  select(-leta) %>% melt(id.vars = "datum", variable.name = "podatek", value.name = "vrednost") %>%
+  select(-leta) %>% melt(id.vars = "datum", variable.name = "vrsta", value.name = "vrednost") %>%
   mutate(vrednost = gsub("[^0-9.]", "-", vrednost) %>% parse_number(na = "-"))
 
 BDP <- read_csv("podatki/BDP.csv",
