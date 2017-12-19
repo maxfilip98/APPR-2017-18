@@ -21,7 +21,19 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Makroekonomska analiza evropskega gospodarstva.
 
-Za svoj projekt sem si izbral makroekonomsko analizo evropskega gospodarstva. Ta tematika me je privabila zaradi tesne povezave s predmetom makroekonomija in zaradi mojega splošnega zanimanja za gibanje evropskega in svetovnega gospodarstva, s katerim bom imel v prihodnosti po vsej verjetnosti veliko opravka.
+V svojem projektu se bom ukvarjal z makroekonomsko analizo evropskega gospodarstva od leta 1999 naprej. Pri analizi se bom osredotočil predvsem na glavne sestavine BDP-ja (domača potrošnja, potrošnja države, investicije, uvoz in izvoz) ter na ostale makroekonomske kazatelje, kot so inflacija in obrestne mere. Podatke bom nato primerjal glede na različne države in predele Evrope. Iskal bom podobnosti in razlike med njimi ter vplive obrestne mere, inflacije, gospodarske krize leta 2008 in drugih zunanjih šokov, ki so vplivali na gospodarsko rast evropskih držav.
+
+Podatke bom črpal iz evrostata, uradnih strani evropske centralne banke:
+
+http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-406763_QID_-7AA5FD9F_UID_-3F171EB0&layout=TIME,C,X,0;NA_ITEM,L,Y,0;GEO,L,Y,1;UNIT,L,Z,0;INDICATORS,C,Z,1;&zSelection=DS-406763UNIT,CLV10_MEUR;DS-406763INDICATORS,OBS_FLAG;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_0_0&rankName4=NA-ITEM_1_0_0_1&rankName5=GEO_1_0_1_1&sortR=ASC_-1_FIRST&sortC=ASC_-1_FIRST&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23
+https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html
+http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=tec00118&plugin=1
+Projekt bo vseboval 3 tabele:
+
+prva tabela bo vsebovala stolpec z letnicami, nato pa bodo sledili stolpci z ekonomskimi podatki posameznih držav, ki bodo vsebovali realno rast BDP-ja, domačo potrošnjo, potrošnjo države, investicije, uvoz in izvoz.
+druga in tretja tabela bosta prav tako vsebovali stolpec z letnicami, nato pa bosta sledila stolpca z obrestnimi merami in inflacijo.
+
+Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ***
 
@@ -30,36 +42,28 @@ Za svoj projekt sem si izbral makroekonomsko analizo evropskega gospodarstva. Ta
 ```{r uvoz, echo=FALSE, message=FALSE}
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
-Podatke sem uvozil iz strani evrostat, ter iz uradne strani ECB v obliki CSV in HTML.
+Podatke sem uvozil iz strani evrostat, ter iz uradne strani ECB v obliki CSV in HTML. Podatki so v treh tabelah in so v obliki *tidy data*.
+
+1. 'Obrestne mere' - Podatki o različnih vrstah obrestnih mer skozi leta. Uvozil iz HTML-ja.
+  - 'datum' - meritev: datum spremembe obrestne mere (datum),
+  - 'vrsta' - spremenljivka: vrsta obrestne mere (neurejen faktor),
+  - 'vrednost' - meritev: vrednost obrestne mere v % (število).
+  
+2. 'Inflacija' - Podatki o stopnji inflacije v evropskih državah in ZDA. Uvozil iz HTML-ja.
+  - 'drzava' - spremenljivka: ime države (neurejen faktor),
+  - 'leto' - meritev: leto inflacije (število),
+  - 'stopnja' - meritev: stopnja inflacije (število).
+  
+3. 'BDP' - Podatki o BDP-ju in sestavnih delih le tega. Uvozil iz CSV-ja.
+  - 'leto' - meritev: leto (število),
+  - 'sestava' - spremenljivka: sestavni deli BDP-ja (neurejen faktor),
+  - 'drzava' - spremenljivka: ime države (neurejen faktor),
+  - 'vrednost' - meritev: vrednost sestavnih delov BDP-ja v eur (število).
 
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
+**Opomba**: Pri tabeli BDP sem prvo odstranil nekaj vrstic, saj so bili v njih tudi podatki od leta 1991 naprej, ki pa jih ne potrebujem, saj imam v drugih dveh tabelah podatke od leta 1999 oz. 2005 naprej in bi analizo težje naredil, zaradi mankajočih podatkov.
 
-1. `druzine` - podatki o družinah za vsako občino
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `velikost.druzine` - spremenljivka: število otrok v družini (število: 1, 2, 3 ali 4, kjer zadnja vrednost pomeni 4 ali več),
-  - `stevilo.druzin` - meritev: število družin z ustreznim številom otrok v ustrezni občini (število).
-
-2. `obcine` - podatki o občinah
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `povrsina` - meritev: površina občine v km$^2$ (število),
-  - `prebivalci` - meritev: prebivalstvo občine (število),
-  - `gostota` - meritev: število prebivalcev na km$^2$ (število),
-  - `naselja` - meritev: število naselij v občini (število),
-  - `ustanovitev` - meritev: leto ustanovitve občine (število),
-  - `pokrajina` - meritev: pokrajina, ki ji občina pripada (neurejen faktor),
-  - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
-  - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
-
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
-
-Spodnji graf prikazuje porazdelitev števila naselij v občinah.
-
-```{r histogram, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Histogram števila naselij v občinah'}
-ggplot(obcine, aes(x = naselja)) + geom_histogram() +
-  ggtitle("Pogostost števila naselij") + xlab("Število naselij") + ylab("Število občin")
-```
+Glede na podatke iz tabel lahko vidimo tesno povezavo v obnašanju med inflacijo BDP-jem, obrestnimi merami ter gospodarsko krizo leta 2008.
 
 ***
 
