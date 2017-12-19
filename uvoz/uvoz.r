@@ -19,12 +19,12 @@ obrestne_mere <- stran2 %>% html_nodes(xpath="//table[@class='ecb-contentTable f
   .[[1]] %>%
   html_table(fill = TRUE)
 colnames(obrestne_mere) <- c("leta", "datum", "deposit_facility", "fixed_rate_tenders_fixed-rate", "variable_rate_tenders_minimum_bid_rate", "marginal_lending-facility")
-obrestne_mere <- tail(obrestne_mere, -2)
-obrestne_mere$leta <- parse_number(obrestne_mere$leta)
-obrestne_mere$deposit_facility <- parse_number(obrestne_mere$deposit_facility)
-obrestne_mere$fixed_rate_tenders_fixed_rate <- parse_number(obrestne_mere$fixed_rate_tenders_fixed_rate)
-obrestne_mere$marginal_lending-facility <-parse_number(obrestne_mere$marginal_lending-facility)
-obrestne_mere <- filter(obrestne_mere, leta > 10)
+obrestne_mere <- obrestne_mere %>% tail(-2) %>% head(-1) %>%
+  mutate(leta = parse_number(leta),
+         datum = datum %>% strapplyc("^([^.]+)") %>% unlist()) %>% fill(leta) %>%
+  mutate(datum = paste(datum, leta) %>% parse_date("%d %b %Y", locale = locale("en"))) %>%
+  select(-leta) %>% melt(id.vars = "datum", variable.name = "podatek", value.name = "vrednost") %>%
+  mutate(vrednost = gsub("[^0-9.]", "-", vrednost) %>% parse_number(na = "-"))
 
 BDP <- read_csv("podatki/BDP.csv",
                 col_names = c("leta", "sestava", "drzava" , "unit", "vrednost"),
