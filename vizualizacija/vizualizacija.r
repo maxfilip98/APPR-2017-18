@@ -3,7 +3,7 @@ zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturale
                              "ne_110m_admin_0_countries") %>% pretvori.zemljevid()
 
 zemljevid <- zemljevid %>% filter (CONTINENT %in% c("Europe"), NAME_LONG != "Russian Federation")
-zemljevid$NAME_LONG <- gsub("United States", "USA", zemljevid$NAME_LONG)
+
 
 graf.BDP <- ggplot() + 
   geom_polygon(data = left_join(zemljevid, BDP %>% filter(leto==2016, sestava=="Gross domestic product at market prices"), by = c("NAME_LONG" = "drzava")),
