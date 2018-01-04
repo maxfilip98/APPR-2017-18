@@ -6,10 +6,20 @@ zemljevid <- zemljevid %>% filter (CONTINENT %in% c("Europe"), NAME_LONG != "Rus
 
 
 graf.BDP <- ggplot() + 
-  geom_polygon(data = left_join(zemljevid, BDP %>% filter(leto==2016, sestava=="Gross domestic product at market prices"), by = c("NAME_LONG" = "drzava")),
+  geom_polygon(data = left_join(zemljevid, BDP %>% filter(leta==2016, sestava=="Gross domestic product at market prices"), by = c("NAME_LONG" = "drzava")),
                aes(x = long, y = lat, group = group, fill = -vrednost)) +
-  ggtitle("BDP") + xlab("") + ylab("") +
-  guides(fill = guide_colorbar(title = "BDP"))
+  ggtitle("BDP 2016") + xlab("") + ylab("") +
+  guides(fill = guide_colorbar(title = "BDP v eur"))
+
+graf.inflacija <- ggplot() + 
+  geom_polygon(data = left_join(zemljevid, inflacija %>% filter(leto==2016), by = c("NAME_LONG" = "drzava")),
+               aes(x = long, y = lat, group = group, fill = -stopnja)) +
+  ggtitle("inflacija 2016") + xlab("") + ylab("") +
+  guides(fill = guide_colorbar(title = "stopnja"))
+
+
+
+
 
 # Uvozimo zemljevid.
 #zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
