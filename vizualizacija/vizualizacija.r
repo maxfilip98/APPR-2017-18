@@ -1,4 +1,5 @@
 # 3. faza: Vizualizacija podatkov
+#ZEMLJEVID
 zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip",
                              "ne_110m_admin_0_countries") %>% pretvori.zemljevid()
 
@@ -17,18 +18,13 @@ graf.inflacija <- ggplot() +
   ggtitle("inflacija 2016") + xlab("") + ylab("") +
   guides(fill = guide_colorbar(title = "stopnja"))
 
+#GRAF
+graf.inflacijaEU <- ggplot(inflacija %>% filter(drzava == "European Union (changing composition)"),
+                           aes(x=leto, y=stopnja)) + geom_line(color="red")
+
+graf.BDP2016 <- ggplot(BDP %>% filter(leta == 2016, sestava == "Gross domestic product at market prices", drzava != c("European Union", "Euro area")),
+                           aes(x=drzava, y=vrednost)) + geom_col(color="green")
+                           
 
 
 
-
-# Uvozimo zemljevid.
-#zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
-#                             "OB/OB", encoding = "Windows-1250")
-#levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
-#  { gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
-#zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
-#zemljevid <- pretvori.zemljevid(zemljevid)
-
-# Izračunamo povprečno velikost družine
-#povprecja <- druzine %>% group_by(obcina) %>%
-#  summarise(povprecje = sum(velikost.druzine * stevilo.druzin) / sum(stevilo.druzin))
