@@ -6,10 +6,12 @@ zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturale
 zemljevid <- zemljevid %>% filter (CONTINENT %in% c("Europe"), NAME_LONG != "Russian Federation")
 
 graf.BDP <- ggplot() + 
-  geom_polygon(data = left_join(zemljevid, BDP %>% filter(leta==2016, sestava=="Gross domestic product at market prices"), by = c("NAME_LONG" = "drzava")),
+  geom_polygon(data = left_join(zemljevid, BDP %>% filter(leta==2016,
+                                                          sestava=="Gross domestic product at market prices"),
+                                by = c("NAME_LONG" = "drzava")),
                aes(x = long, y = lat, group = group, fill = vrednost/1000000)) +
   ggtitle("BDP 2016") + xlab("") + ylab("") +
-  guides(fill = guide_colorbar(title = "BDP v milijonih eur"))
+  guides(fill = guide_colorbar(title = "BDP v milijonih eur")) +
   coord_cartesian(xlim = c(-25, 40), ylim = c(32, 72))
 
 graf.inflacija <- ggplot() + 
