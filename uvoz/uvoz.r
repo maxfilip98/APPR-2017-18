@@ -31,10 +31,9 @@ BDP <- read_csv("podatki/BDP.csv",
                 skip = 1,
                 na = ":", locale = locale(encoding = "UTF-8", grouping_mark = " ",
                 decimal_mark = ".")) %>% select(-unit)
-BDP <- filter(BDP, leta >= 1999)
-BDP$drzava <- gsub("\\(([^)]*)\\)", "", BDP$drzava) 
-BDP$drzava <- gsub("Former Yugoslav Republic of Macedonia, the
-", "Macedonia", BDP$drzava) 
+BDP <- filter(BDP, leta >= 1999, ! grepl("^Euro", drzava))
+BDP$drzava <- gsub(" \\([^)]*\\)", "", BDP$drzava)
+BDP$drzava <- gsub("Former Yugoslav Republic of Macedonia, the", "Macedonia", BDP$drzava) 
 BDP <- filter(BDP, leta >= 1999, ! grepl("^Euro", drzava))
 BDP$drzava <- gsub(" \\([^)]*\\)", "", BDP$drzava)
 

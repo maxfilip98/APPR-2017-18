@@ -6,9 +6,7 @@ zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturale
 zemljevid <- zemljevid %>% filter (CONTINENT %in% c("Europe"), NAME_LONG != "Russian Federation")
 
 graf.BDP <- ggplot() + 
-  geom_polygon(data = left_join(zemljevid, BDP %>% filter(leta==2016,
-                                                          sestava=="Gross domestic product at market prices"),
-                                by = c("NAME_LONG" = "drzava")),
+  geom_polygon(data = left_join(zemljevid, BDP %>% filter(leta==2016, sestava=="Gross domestic product at market prices"), by = c("NAME_LONG" = "drzava")),
                aes(x = long, y = lat, group = group, fill = vrednost/1000000)) +
   ggtitle("BDP 2016") + xlab("") + ylab("") +
   guides(fill = guide_colorbar(title = "BDP v milijonih eur")) +
@@ -37,5 +35,17 @@ graf.obrestne <- ggplot(obrestne_mere %>% filter(vrsta == "deposit_facility"),
 graf.rastBDP_Nem <- ggplot(BDP %>% filter(drzava == "Germany", sestava == "Gross domestic product at market prices"),
                            aes(x=leta, y=vrednost)) + geom_line(color="yellow")
 
+graf.rastBDP <- ggplot(BDP %>% filter(sestava == "Gross domestic product at market prices"),
+                       aes(x = leta, y = vrednost/1000000,, color = drzava)) + geom_line()
+
+podatki <- BDP %>% filter(leta == 2016, sestava == "Gross domestic product at market prices") %>%
+  arrange(desc(vrednost)) %>% mutate(drzava = ifelse(row_number() > 10, "Ostale", drzava)) %>%
+  group_by(drzava) %>% summarise(vrednost = sum(vrednost, na.rm = TRUE))
+
+ggplot(podatki, aes(x = factor(1), y = vrednost/1000000,
+                    fill = reorder(drzava, ifelse(drzava == "Ostale", 0, vrednost)))) +
+  geom_col(width = 1) + coord_polar(theta = "y") + xlab("") + ylab("") +
+  guides(fill = guide_legend("Država", reverse = TRUE)) + ggtitle("BDP v milijonih evrov") +
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
 
 
