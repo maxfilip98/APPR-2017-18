@@ -16,7 +16,7 @@ graf.inflacija <- ggplot() +
   geom_polygon(data = left_join(zemljevid, inflacija %>% filter(leto==2016), by = c("NAME_LONG" = "drzava")),
                aes(x = long, y = lat, group = group, fill = stopnja)) +
   ggtitle("inflacija 2016") + xlab("") + ylab("") +
-  guides(fill = guide_colorbar(title = "stopnja"))
+  guides(fill = guide_colorbar(title = "stopnja")) +
   coord_cartesian(xlim = c(-25, 40), ylim = c(32, 72))
 
 #GRAF
@@ -42,7 +42,7 @@ podatki <- BDP %>% filter(leta == 2016, sestava == "Gross domestic product at ma
   arrange(desc(vrednost)) %>% mutate(drzava = ifelse(row_number() > 10, "Ostale", drzava)) %>%
   group_by(drzava) %>% summarise(vrednost = sum(vrednost, na.rm = TRUE))
 
-ggplot(podatki, aes(x = factor(1), y = vrednost/1000000,
+graf.delezBDP <- ggplot(podatki, aes(x = factor(1), y = vrednost/1000000,
                     fill = reorder(drzava, ifelse(drzava == "Ostale", 0, vrednost)))) +
   geom_col(width = 1) + coord_polar(theta = "y") + xlab("") + ylab("") +
   guides(fill = guide_legend("Država", reverse = TRUE)) + ggtitle("BDP v milijonih evrov") +
