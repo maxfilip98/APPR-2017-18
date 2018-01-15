@@ -72,15 +72,44 @@ Glede na podatke iz tabel lahko vidimo tesno povezavo v obnašanju med inflacijo
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
+Pri vizualizaciji projekta sem naredil nekaj grafov ter zemljevidov, ki so po mojem mnenju nujno potrebni za vsaj nekaj osnovnih predstav o povezavah med dejavniki, ki vplivajo na gospodarasko rast EU.
 
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
+## BDP
 
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-ggplot() + geom_polygon(data = left_join(zemljevid, povprecja, by = c("OB_UIME" = "obcina")),
-                        aes(x = long, y = lat, group = group, fill = povprecje)) +
-  ggtitle("Povprečno število otrok v družini") + xlab("") + ylab("") +
-  guides(fill = guide_colorbar(title = "Povprečje"))
-```
+graf.bdp
+
+Za analizo BDP-ja in njegovih komponent sem sprva pripravil zemljevid, ki nam prikazuje stanje BDP-ja leta 2016 v Evropi po vseh državah. Kot je nekako pričakovati so po vrednosti tu na prvem mestu navečja in najbolj razvita gospodarstva EU (Nemčija, Francija in Velika Britanija). Mogoče imajo vrednost BDP-ja pod pričakovanji skandinavske države, a po drugi strani je to razumljivo, saj imajo veliko manj prebivalcev kot npr. Nemčija.
+
+Za primerjavo, kako visoke so razlike med BDP-ji držav sem tudi pripravil stolpični diagram, ki ureja vse države EU po velikosti glede na vrednost in tortni diagram, ki prikazuje deleže BDP-ja posameznih gospodarstev.
+
+graf.BDP2016
+
+graf.delezBDP
+
+Ker me v mojem projektu zanimajo tudi vplivi inflacije in obrestnih mer na BDP, sem za lažjo primerjavo pripravil dva grafa. Prvi prikazuje rast BDP-ja vseh držav EU od leta 1999 naprej. V tem grafu lahko vidimo podobnost v gibanju rasti med skoraj vsemi državami in velikost različnih šokov na gospodarstva (kot je bila npr. kriza 2008).
+
+graf.rastBDP
+
+Ampak, ker je ta graf težko berljiv, zaradi števila krivulj , ki ga vsebuje, sem pripravil tudi graf, ki vsebuje le gospodarsko rast Nemčija, ki naj bi bila nekako vodilna gospodarska sila EU. Glede na ta graf bom najlažje opazoval vpliv obrestnih mer ter inflacije na razvita gospodarstva.
+
+graf.rastBDP_Nem
+
+## Inflacija
+
+Inflacija je definitivno eden izmed pomembnih dejavnikov, ki vplivajo na gospodarstvo, vrednost potrošnje, investicij, obrestnih mer... Zato sem za začetek v moj projekt vklučil zemljevid inflacije leta 2016 po posameznih državah, s katerim bom lahko opazoval, katerim gospodarstvom uspeva držati raven inflacije pri 2% in katere države (če katere imajo) imajo problem z hiperinflacijo ali deflacijo.
+
+graf.inflacija
+
+Graf številka dva, ki se nanaša na inflacijo, prikazuje spremembo le-te skozi leta od leta 2005 naprej. Z njim bom lahko najlažje opazvoal vpliv na obrestne mere skozi leta in na BDP.
+
+graf.inflacijaEU
+
+## Obrestne mere
+
+Tretji velik razdelek mojih podatkov se navezuje na obrestne mere. Ker v EU obrestne mere centralnih bank nastavlja ECB zemljevida le-teh nisem vključil, ker bi bil nesmiselen. Sem pa zato vključil graf spreminjanja obrestnih mer skozi leta od 1999 naprej.
+
+graf.obrestne
+
 
 ***
 
