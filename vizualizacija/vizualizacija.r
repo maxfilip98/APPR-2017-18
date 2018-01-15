@@ -1,7 +1,7 @@
 # 3. faza: Vizualizacija podatkov
 #ZEMLJEVID
 zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip",
-                             "ne_110m_admin_0_countries") %>% pretvori.zemljevid()
+                             "ne_110m_admin_0_countries", encoding = "") %>% pretvori.zemljevid()
 
 zemljevid <- zemljevid %>% filter (CONTINENT %in% c("Europe")| NAME_LONG %in% c("Turkey", "Cyprus", "Northern Cyprus"),
                                    NAME_LONG != "Russian Federation")
