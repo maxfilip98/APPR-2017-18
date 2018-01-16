@@ -24,9 +24,12 @@ V svojem projektu se bom ukvarjal z makroekonomsko analizo evropskega gospodarst
 
 Podatke bom črpal iz evrostata, uradnih strani evropske centralne banke:
 
-http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-406763_QID_-7AA5FD9F_UID_-3F171EB0&layout=TIME,C,X,0;NA_ITEM,L,Y,0;GEO,L,Y,1;UNIT,L,Z,0;INDICATORS,C,Z,1;&zSelection=DS-406763UNIT,CLV10_MEUR;DS-406763INDICATORS,OBS_FLAG;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_0_0&rankName4=NA-ITEM_1_0_0_1&rankName5=GEO_1_0_1_1&sortR=ASC_-1_FIRST&sortC=ASC_-1_FIRST&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23
-https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html
-http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=tec00118&plugin=1
+<http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-406763_QID_-7AA5FD9F_UID_-3F171EB0&layout=TIME,C,X,0;NA_ITEM,L,Y,0;GEO,L,Y,1;UNIT,L,Z,0;INDICATORS,C,Z,1;&zSelection=DS-406763UNIT,CLV10_MEUR;DS-406763INDICATORS,OBS_FLAG;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_0_0&rankName4=NA-ITEM_1_0_0_1&rankName5=GEO_1_0_1_1&sortR=ASC_-1_FIRST&sortC=ASC_-1_FIRST&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23>
+
+<https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html>
+
+<http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=tec00118&plugin=1>
+
 Projekt bo vseboval 3 tabele:
 
 prva tabela bo vsebovala stolpec z letnicami, nato pa bodo sledili stolpci z ekonomskimi podatki posameznih držav, ki bodo vsebovali realno rast BDP-ja, domačo potrošnjo, potrošnjo države, investicije, uvoz in izvoz.
@@ -75,39 +78,57 @@ Pri vizualizaciji projekta sem naredil nekaj grafov ter zemljevidov, ki so po mo
 
 ## BDP
 
-graf.bdp
+```{r graf.BDP, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Graf BDP'}
+    graf.BDP
+```
 
 Za analizo BDP-ja in njegovih komponent sem sprva pripravil zemljevid, ki nam prikazuje stanje BDP-ja leta 2016 v Evropi po vseh državah. Kot je nekako pričakovati so po vrednosti tu na prvem mestu navečja in najbolj razvita gospodarstva EU (Nemčija, Francija in Velika Britanija). Mogoče imajo vrednost BDP-ja pod pričakovanji skandinavske države, a po drugi strani je to razumljivo, saj imajo veliko manj prebivalcev kot npr. Nemčija.
 
 Za primerjavo, kako visoke so razlike med BDP-ji držav sem tudi pripravil stolpični diagram, ki ureja vse države EU po velikosti glede na vrednost in tortni diagram, ki prikazuje deleže BDP-ja posameznih gospodarstev.
 
-graf.BDP2016
+```{r graf.BDP2016, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Graf BDP 2016'}
+    graf.BDP2016
+```
 
-graf.delezBDP
+```{r graf.delezBDP, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Graf delez BDP'}
+    graf.delezBDP
+```
 
 Ker me v mojem projektu zanimajo tudi vplivi inflacije in obrestnih mer na BDP, sem za lažjo primerjavo pripravil dva grafa. Prvi prikazuje rast BDP-ja vseh držav EU od leta 1999 naprej. V tem grafu lahko vidimo podobnost v gibanju rasti med skoraj vsemi državami in velikost različnih šokov na gospodarstva (kot je bila npr. kriza 2008).
 
-graf.rastBDP
+```{r graf.rastBDP, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Graf rast BDP'}
+    graf.rastBDP
+```
 
 Ampak, ker je ta graf težko berljiv, zaradi števila krivulj , ki ga vsebuje, sem pripravil tudi graf, ki vsebuje le gospodarsko rast Nemčija, ki naj bi bila nekako vodilna gospodarska sila EU. Glede na ta graf bom najlažje opazoval vpliv obrestnih mer ter inflacije na razvita gospodarstva.
 
 graf.rastBDP_Nem
+```{r graf.rastBDP_Nem, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Graf rast BDP Nem'}
+    graf.rastBDP_Nem
+```
 
 ## Inflacija
 
 Inflacija je definitivno eden izmed pomembnih dejavnikov, ki vplivajo na gospodarstvo, vrednost potrošnje, investicij, obrestnih mer... Zato sem za začetek v moj projekt vklučil zemljevid inflacije leta 2016 po posameznih državah, s katerim bom lahko opazoval, katerim gospodarstvom uspeva držati raven inflacije pri 2% in katere države (če katere imajo) imajo problem z hiperinflacijo ali deflacijo.
 
-graf.inflacija
+```{r graf.inflacija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Graf inflacija'}
+    graf.inflacija
+```
 
 Graf številka dva, ki se nanaša na inflacijo, prikazuje spremembo le-te skozi leta od leta 2005 naprej. Z njim bom lahko najlažje opazvoal vpliv na obrestne mere skozi leta in na BDP.
 
-graf.inflacijaEU
+```{r graf.inflacijaEU, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Graf Inflacija EU'}
+    graf.inflacijaEU
+```
 
 ## Obrestne mere
 
 Tretji velik razdelek mojih podatkov se navezuje na obrestne mere. Ker v EU obrestne mere centralnih bank nastavlja ECB zemljevida le-teh nisem vključil, ker bi bil nesmiselen. Sem pa zato vključil graf spreminjanja obrestnih mer skozi leta od 1999 naprej.
 
 graf.obrestne
+```{r graf.obrestne, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Graf obrestne'}
+    graf.obrestne
+```
 
 
 ***
