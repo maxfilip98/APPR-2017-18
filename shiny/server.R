@@ -2,12 +2,18 @@ library(shiny)
 
 function(input, output) {
   
-  output$grafi <- renderPlot({
-    tabela <- BDP %>% filter(drzava == input$drzava, sestava ==input$sestava)
-    print(ggplot(tabela,  aes(x = leta, y = vrednost/1000)) + geom_line() + 
+  output$grafi1 <- renderPlot({
+    tabela1 <- BDP %>% filter(drzava == input$drzava, sestava ==input$sestava)
+    print(ggplot(tabela1,  aes(x = leta, y = vrednost/1000)) + geom_line() + 
             xlab("leta")+ ylab("vrednost") + 
-            ggtitle("Vredbost BDP-ja v miljardah"))
+            ggtitle("Vrednost BDP-ja v miljardah"))
   })
+  output$grafi2 <- renderPlot({
+    tabela2 <- inflacija %>% filter(drzava == input$drzava)
+    print(ggplot(tabela2,  aes(x = leto, y = stopnja)) + geom_line() + 
+            xlab("leto")+ ylab("stopnja") + 
+            ggtitle("Stopnja inflacije"))
+  })  
 }
   
 #    dcast(druzine, obcina ~ velikost.druzine, value.var = "stevilo.druzin") %>%
