@@ -17,7 +17,14 @@ fluidPage(
           selectInput("drzava", label = "Izberi državo", 
                       choices = unique(inflacija$drzava))
         ),
-          mainPanel(plotOutput("grafi2")))
+          mainPanel(plotOutput("grafi2"))),
+  
+  tabPanel("Graf",
+           sidebarPanel(
+             selectInput("drzava", label = "Izberi državo", 
+                         choices = unique(pomozna_BDP_obrestne_mere$drzava))
+           ),
+           mainPanel(plotOutput("grafi3")))
   
   
 )

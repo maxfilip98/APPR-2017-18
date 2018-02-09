@@ -39,6 +39,8 @@ BDP$drzava <- gsub(" \\([^)]*\\)", "", BDP$drzava)
 
 pomozna_inflacija_BDP <- inner_join(inflacija, BDP %>% filter(leta >= 2005), by = c("leto"="leta"))
 
+pomozna_BDP_obrestne_mere <- inner_join(BDP, obrestne_mere %>% mutate(leto = datum %>% strftime("%Y") %>% parse_integer()), by = c("leta"="leto"))
+
 
 
 

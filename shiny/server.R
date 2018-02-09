@@ -13,6 +13,13 @@ function(input, output) {
     print(ggplot(tabela2,  aes(x = leto, y = stopnja)) + geom_line() + 
             xlab("leto")+ ylab("stopnja") + 
             ggtitle("Stopnja inflacije"))
+  })
+  output$grafi3 <- renderPlot({
+    tabela3 <- pomozna_BDP_obrestne_mere %>% filter(sestava == "Gross domestic product at market prices",
+                                                    vrsta == "deposit_facility", drzava == input$drzava)
+    print(ggplot(tabela3,  aes(x = vrednost.x, y = vrednost.y)) + geom_point() + 
+            xlab("BDP")+ ylab("obrestna mera") + 
+            ggtitle("Odvisnost BDP-ja od obrestne mere v posameznih državah"))
   })  
 }
   

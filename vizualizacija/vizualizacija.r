@@ -50,3 +50,4 @@ graf.delezBDP <- ggplot(podatki, aes(x = factor(1), y = vrednost/1000000,
   theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
 
 
+
