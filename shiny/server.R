@@ -11,7 +11,7 @@ function(input, output) {
   output$grafi2 <- renderPlot({
     tabela2 <- inflacija %>% filter(drzava == input$drzava)
     print(ggplot(tabela2,  aes(x = leto, y = stopnja)) + geom_line() + 
-            xlab("leto")+ ylab("stopnja") + 
+            xlab("leto")+ ylab("stopnja") + scale_x_continuous(breaks = seq(2005, 2017, 2)) +
             ggtitle("Stopnja inflacije"))
   })
   output$grafi3 <- renderPlot({
