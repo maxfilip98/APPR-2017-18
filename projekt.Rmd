@@ -137,8 +137,15 @@ graf.obrestne
 
 V naslednjem oknu si lahko pogledamo rast BDP-ja in inflacije v vseh državah EU.
 
+# Napredna analiza podatkov
+
+Kot sem omenil že v začetku mojega projekta je bil glavni del le-tega vpliv obrestne mere, inflacije ter gospodarske krize na gospodarsko stanje v Evropi.
+
+Za začetek sem v projekt vključil graf različnih sestavnih delov BDP-ja vsake države in inflacijo v vsaki državi.
+
+
 ```{r shiny, echo = FALSE}
-shinyAppDir("shiny", options=list(width="100%", height=600))
+shinyAppDir("shiny", options=list(width="100%", height=900))
 ```  
 
 ***
