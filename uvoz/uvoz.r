@@ -37,6 +37,7 @@ BDP$drzava <- gsub("Former Yugoslav Republic of Macedonia, the", "Macedonia", BD
 BDP <- filter(BDP, leta >= 1999, ! grepl("^Euro", drzava))
 BDP$drzava <- gsub(" \\([^)]*\\)", "", BDP$drzava)
 
+pomozna_inflacija_BDP <- inner_join(inflacija, BDP %>% filter(leta >= 2005), by = c("leto"="leta"))
 
 
 
