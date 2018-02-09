@@ -11,6 +11,7 @@ inflacija <- inflacija %>%
   melt(id.vars = "drzava", variable.name = "leto", value.name = "stopnja") %>%
   mutate(leto = parse_number(leto),
          stopnja = parse_number(stopnja, na = ":"))
+inflacija$drzava <- gsub("Former Yugoslav Republic of Macedonia, the", "Macedonia", inflacija$drzava) 
 
 
 link2 <- "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html"
@@ -37,10 +38,12 @@ BDP$drzava <- gsub("Former Yugoslav Republic of Macedonia, the", "Macedonia", BD
 BDP <- filter(BDP, leta >= 1999, ! grepl("^Euro", drzava))
 BDP$drzava <- gsub(" \\([^)]*\\)", "", BDP$drzava)
 
-pomozna_inflacija_BDP <- inner_join(inflacija, BDP %>% filter(leta >= 2005), by = c("leto"="leta"))
+pomozna_inflacija_BDP <- inner_join(inflacija, BDP %>% filter(leta >= 2005), by = c("leto" = "leta", "drzava"))
 
-pomozna_BDP_obrestne_mere <- inner_join(BDP, obrestne_mere %>% mutate(leto = datum %>% strftime("%Y") %>% parse_integer()), by = c("leta"="leto"))
-
+pomozna_BDP_obrestne_mere <- inner_join(BDP %>% rename(BDP = vrednost),
+                                        obrestne_mere %>% rename(obrestna.mera = vrednost) %>%
+                                          mutate(leto = datum %>% strftime("%Y") %>%
+                                                   parse_integer()), by = c("leta"="leto"))
 
 
 

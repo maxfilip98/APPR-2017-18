@@ -17,29 +17,18 @@ function(input, output) {
   output$grafi3 <- renderPlot({
     tabela3 <- pomozna_BDP_obrestne_mere %>% filter(sestava == "Gross domestic product at market prices",
                                                     vrsta == "deposit_facility", drzava == input$drzava)
-    print(ggplot(tabela3,  aes(x = vrednost.x, y = vrednost.y)) + geom_point() + 
-            xlab("BDP")+ ylab("obrestna mera") + 
+    print(ggplot(tabela3,  aes(x = BDP, y = obrestna.mera)) + geom_point() + 
+            xlab("BDP")+ ylab("obrestna mera") + geom_smooth(method = "lm") +
             ggtitle("Odvisnost BDP-ja od obrestne mere v posameznih državah"))
+  })    
+    
+    output$grafi4 <- renderPlot({
+      tabela4 <- pomozna_inflacija_BDP %>% filter(sestava == "Gross domestic product at market prices",
+                                                  drzava == input$drzava)
+      print(ggplot(tabela4,  aes(x = vrednost, y = stopnja)) + geom_point() + 
+              xlab("BDP")+ ylab("inflacija") + geom_smooth(method = "lm") +
+              ggtitle("Odvisnost BDP-ja od inflacije v posameznih državah"))
   })  
 }
   
-#    dcast(druzine, obcina ~ velikost.druzine, value.var = "stevilo.druzin") %>%
-#      rename(`Občina` = obcina)
-#  })
-#  
-#  output$pokrajine <- renderUI(
-#    selectInput("pokrajina", label="Izberi pokrajino",
-#                choices=c("Vse", levels(obcine$pokrajina)))
-#  )
-#  output$naselja <- renderPlot({
-#    main <- "Pogostost števila naselij"
-#    if (!is.null(input$pokrajina) && input$pokrajina %in% levels(obcine$pokrajina)) {
-#      t <- obcine %>% filter(pokrajina == input$pokrajina)
-#      main <- paste(main, "v regiji", input$pokrajina)
-#    } else {
-#      t <- obcine
-#    }
-#    ggplot(t, aes(x = naselja)) + geom_histogram() +
-#      ggtitle(main) + xlab("Število naselij") + ylab("Število občin")
-#  })
-#})
+

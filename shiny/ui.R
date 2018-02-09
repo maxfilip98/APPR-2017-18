@@ -1,7 +1,7 @@
 library(shiny)
 
 fluidPage(
-  titlePanel("primerjava"),
+  titlePanel("Primerjave"),
   
   tabPanel("Graf",
         sidebarPanel(
@@ -24,8 +24,14 @@ fluidPage(
              selectInput("drzava", label = "Izberi državo", 
                          choices = unique(pomozna_BDP_obrestne_mere$drzava))
            ),
-           mainPanel(plotOutput("grafi3")))
+           mainPanel(plotOutput("grafi3"))),
   
+  tabPanel("Graf",
+           sidebarPanel(
+             selectInput("drzava", label = "Izberi državo", 
+                         choices = unique(pomozna_inflacija_BDP$drzava))
+           ),
+           mainPanel(plotOutput("grafi4")))
   
 )
   
