@@ -3,8 +3,8 @@ library(shiny)
 function(input, output) {
   
   output$grafi <- renderPlot({
-    tabela <- BDP %>% filter(drzava == input$select)
-    print(ggplot(tabela,  aes(x = leto, y = vrednost/1000000)) + geom_point(size = 5) + 
+    tabela <- BDP %>% filter(drzava == input$select, sestava ==input$select)
+    print(ggplot(tabela,  aes(x = leto, y = vrednost/1000000)) + geom_line() + 
             xlab("leta")+ ylab("vrednost") + 
             ggtitle("Vredbost BDP-ja v miljardah"))
   })
