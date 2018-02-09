@@ -1,7 +1,15 @@
 library(shiny)
 
-#shinyServer(function(input, output) {
-#  output$druzine <- DT::renderDataTable({
+function(input, output) {
+  
+  output$grafi <- renderPlot({
+    tabela <- BDP %>% filter(drzava == input$select)
+    print(ggplot(tabela,  aes(x = leto, y = vrednost/1000000)) + geom_point(size = 5) + 
+            xlab("leta")+ ylab("vrednost") + 
+            ggtitle("Vredbost BDP-ja v miljardah"))
+  })
+}
+  
 #    dcast(druzine, obcina ~ velikost.druzine, value.var = "stevilo.druzin") %>%
 #      rename(`Občina` = obcina)
 #  })

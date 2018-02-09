@@ -1,17 +1,13 @@
 library(shiny)
-#
-#shinyUI(fluidPage(
-#  
-#  titlePanel("Slovenske občine"),
-#  
-#  tabsetPanel(
-#      tabPanel("Velikost družine",
-#               DT::dataTableOutput("druzine")),
-#      
-#      tabPanel("Število naselij",
-#               sidebarPanel(
-#                  uiOutput("pokrajine")
-#                ),
-#               mainPanel(plotOutput("naselja")))
-#    )
-#))
+
+fluidPage(
+  
+  selectInput("select", label = h3("Država"), 
+              choices = BDP$drzava), 
+  
+  hr(),
+  mainPanel(plotOutput("grafi")),
+  
+  
+)
+  
