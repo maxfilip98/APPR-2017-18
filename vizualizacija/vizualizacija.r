@@ -34,7 +34,7 @@ graf.obrestne <- ggplot(obrestne_mere %>% filter(vrsta == "deposit_facility"),
                        aes(x=datum, y=vrednost)) + geom_line(color="blue")
 
 graf.rastBDP_Nem <- ggplot(BDP %>% filter(drzava == "Germany", sestava == "Gross domestic product at market prices"),
-                           aes(x=leta, y=vrednost)) + geom_line(color="yellow")
+                           aes(x=leta, y=vrednost)) + geom_line(color="red")
 
 graf.rastBDP <- ggplot(BDP %>% filter(sestava == "Gross domestic product at market prices"),
                        aes(x = leta, y = vrednost/1000000,, color = drzava)) + geom_line()
