@@ -140,6 +140,8 @@ V naslednjem oknu si lahko pogledamo rast BDP-ja in inflacije v vseh državah EU
 
 # Napredna analiza podatkov
 
+![](http://armstrongeconomics-wp.s3.amazonaws.com/2015/10/Crisis-Ahead-r.jpg)
+
 Kot sem omenil že v začetku mojega projekta je bil glavni del le-tega vpliv obrestne mere, inflacije ter gospodarske krize na gospodarsko stanje v Evropi.
 
 Za začetek sem v projekt vključil graf različnih sestavnih delov BDP-ja vsake države in inflacijo v vsaki državi. Iz njih je razvidno, da se vse tri spremenljivke gibljejo sorazmerno, saj ko je BDP rastel, je z njim rastla tudi inflacija. To pa je prisililo ECB, da je začela dvigovati obrestne mere (saj je s tem malce umirila inflacijo, ki naj bi se ves čas gibala okoli 2%)
@@ -149,6 +151,8 @@ Ko pogledamo grafe posameznih držav, lahko vidimo da je korelacija med spremenl
 V državah, ki so imele v zadnjih letih finančne težave (Grčija, Italija), so podatki ravno nasprotujoči. Ti dve državi sta imeli po krizi zelo hude finančne težave, ki še zmeraj vplivajo na BDP v taki meri, da tudi nizke obrestne mere in nizka stopnja inflacije nista pomagali k veliki gospodarski rasti po krizi. 
 
 Kar pa je presenetljivo, je da so v slabše razvitih državah (Romunija, Bolgarija) korelacije med BDP-jem, inflacijo in obrestnimi merami popolnoma enake kot pri bolje razvitih državah. Pri teh državah je imela na BDP zelo majhen vpliv tudi gospodarska kriza, saj je ta upadel le za malo leta 2008, potem pa se je rast nadaljevala (a ne tako strmo kot pred krizo).
+
+Iz vseh podatkov skupaj bi, kot sem omenil že zgoraj, lahko v srednji prihodnosti pričakovali vsaj korekcijo v gospodarstvu. Ta na manj razvite države verjetno ne bo imela tako velikega učinka kot ga bo imela na vodilne EU gospodarske velesile, ali pa na države, ki so imele v zadnjem obdobju težave. Kriza bo tudi znižala stopnjo inflacije, saj se bo zmanjšala kupna moč ljudi in ukrep, ki bo k temu pripomogel bo počasen dvig obrestnih mer, ki se je v Ameriki že začel, v Evropi pa naj bi ga začeli izvajati v roku 1 leta.
 
 
 
