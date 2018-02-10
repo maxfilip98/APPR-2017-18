@@ -144,6 +144,13 @@ Kot sem omenil že v začetku mojega projekta je bil glavni del le-tega vpliv ob
 
 Za začetek sem v projekt vključil graf različnih sestavnih delov BDP-ja vsake države in inflacijo v vsaki državi. Iz njih je razvidno, da se vse tri spremenljivke gibljejo sorazmerno, saj ko je BDP rastel, je z njim rastla tudi inflacija. To pa je prisililo ECB, da je začela dvigovati obrestne mere (saj je s tem malce umirila inflacijo, ki naj bi se ves čas gibala okoli 2%)
 
+Ko pogledamo grafe posameznih držav, lahko vidimo da je korelacija med spremenljivkami močnejša in bolj predvidljiva v razvitih državah (Nemčija, VB, Francija). Visoka inflacija ter visoke obrestne mere v spošnem slabo vplivajo na BDP, saj visoka inflacija lahko vodi v pregrevanje gospodarstva in dvigovanje obrestnih mer. Na te države je imela tudi zelo velik vpliv gospodarska kriza leta 2008, ki je povzročila občuten padec BDP-ja in s tem inflacije, potem pa je sledil, še zaradi kriznih ukrepov tudi padec obrestnih mer. Nemčija, VB in Francija so z novimi ukrepi hitro pomagale svojemu gospodarstvu in imajo v zadnjih letih ponovno visoko stopnjo rasti (glede na standarde razvitih držav), ki pa se v zadnjem času celo približuje predkrizni ravni in bi to lahko pripomoglo h korekciji, ali pa v najslabšem primeru celo novi recesiji.
+
+V državah, ki so imele v zadnjih letih finančne težave (Grčija, Italija), so podatki ravno nasprotujoči. Ti dve državi sta imeli po krizi zelo hude finančne težave, ki še zmeraj vplivajo na BDP v taki meri, da tudi nizke obrestne mere in nizka stopnja inflacije nista pomagali k veliki gospodarski rasti po krizi. 
+
+Kar pa je presenetljivo, je da so v slabše razvitih državah (Romunija, Bolgarija) korelacije med BDP-jem, inflacijo in obrestnimi merami popolnoma enake kot pri bolje razvitih državah. Pri teh državah je imela na BDP zelo majhen vpliv tudi gospodarska kriza, saj je ta upadel le za malo leta 2008, potem pa se je rast nadaljevala (a ne tako strmo kot pred krizo).
+
+
 
 ```{r shiny, echo = FALSE}
 shinyAppDir("shiny", options=list(width="100%", height=900))
